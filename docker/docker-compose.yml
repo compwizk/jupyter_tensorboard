@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  jupyter-tensorboard:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    image: "jupyter-tensorboard:latest"
+    restart: "no"
+    container_name: "jupyter-tensorboard"
+    networks:
+      - jupyter-tensorboard-net
+    ports:
+      - 8888:8888
+networks:
+  jupyter-tensorboard-net:
+   name: jupyter-tensorboard-net
